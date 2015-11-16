@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Twork</string>
+
+    <string name="topic_round_imageview">圆角图片</string>
+</resources>

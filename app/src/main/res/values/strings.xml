@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Twork</string>
+
+    <string name="topic_round_imageview">Round ImageView</string>
+</resources>
