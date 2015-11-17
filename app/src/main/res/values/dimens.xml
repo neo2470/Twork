@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sign_layout_padding_horizontal">30dp</dimen>
+
+    <dimen name="sign_edit_bg_radius">5dp</dimen>
+    <dimen name="sign_edit_padding_left">15dp</dimen>
+    <dimen name="sign_edit_padding_top">10dp</dimen>
+    <dimen name="sign_edit_padding_right">15dp</dimen>
+    <dimen name="sign_edit_padding_bottom">10dp</dimen>
+</resources>

@@ -11,7 +11,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RoundImageView" />
+        <activity android:name=".RoundImageActivity" />
 
     </application>
 

@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">Twork</string>
 
-    <string name="topic_round_imageview">Round ImageView</string>
+    <string name="topic_sign_in_layout">Log in Layout</string>
+    <string name="topic_sign_up_layout">Sign up Layout</string>
+    <string name="topic_round_image">Round Image</string>
+
+    <string name="sign_username">Username</string>
+    <string name="sign_password">Password</string>
+    <string name="sign_repeat">Repeat Password</string>
+    <string name="sign_forgot">Forget password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="toast_remember_pwd">Write username &amp; password into SharedPreference</string>
+    <string name="toast_not_input_data">Username or password not input</string>
 </resources>
