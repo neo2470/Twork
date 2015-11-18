@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="1024px"
+        android:layout_height="768px"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/scaleBtn1"
+                    android:layout_width="112px"
+                    android:layout_height="50px"
+                    android:background="@drawable/btn_back_01_style" />
+
+                <Button
+                    android:id="@+id/scaleBtn2"
+                    style="@style/ScaleBtnStyle"
+                    android:layout_width="132px"
+                    android:layout_height="50px"
+                    android:layout_toRightOf="@+id/scaleBtn1"
+                    android:background="@drawable/btn_normal_132x50_style"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/scaleBtn3"
+                    style="@style/ScaleBtnStyle"
+                    android:layout_width="132px"
+                    android:layout_height="50px"
+                    android:layout_toRightOf="@+id/scaleBtn2"
+                    android:background="@drawable/btn_normal_132x50_style"
+                    android:enabled="false"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/scaleBtn4"
+                    style="@style/ScaleBtnStyle"
+                    android:layout_width="180px"
+                    android:layout_height="68px"
+                    android:layout_toRightOf="@id/scaleBtn3"
+                    android:background="@drawable/btn_normal_180x68_style"
+                    android:text="Button" />
+
+                <ToggleButton
+                    android:id="@+id/scaleBtn5"
+                    style="@style/ScaleBtnStyle"
+                    android:layout_width="180px"
+                    android:layout_height="68px"
+                    android:layout_toRightOf="@id/scaleBtn4"
+                    android:background="@drawable/btn_normal_180x68_style"
+                    android:checked="true"
+                    android:textOff="Btn Off"
+                    android:textOn="Btn On" />
+
+                <TextView
+                    android:id="@+id/scaleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"
+                    android:layout_below="@id/scaleBtn4"
+                    android:text="@string/scale_text"
+                    android:textSize="20px" />
+
+                <ImageView
+                    android:id="@+id/scaleImageView"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_below="@id/scaleTextView"
+                    android:src="@drawable/test" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+</FrameLayout>

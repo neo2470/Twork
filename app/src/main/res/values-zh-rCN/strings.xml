@@ -5,6 +5,7 @@
     <string name="topic_sign_in_layout">登录界面</string>
     <string name="topic_sign_up_layout">注册界面</string>
     <string name="topic_round_image">圆角图片</string>
+    <string name="topic_scale_layout">缩放布局</string>
 
     <string name="sign_username">用户名称</string>
     <string name="sign_password">用户密码</string>

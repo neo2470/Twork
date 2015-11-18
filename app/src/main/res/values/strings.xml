@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Twork</string>
 
-    <string name="topic_sign_in_layout">Log in Layout</string>
+    <string name="topic_sign_in_layout">Sign in Layout</string>
     <string name="topic_sign_up_layout">Sign up Layout</string>
     <string name="topic_round_image">Round Image</string>
+    <string name="topic_scale_layout">Scale Layout</string>
 
     <string name="sign_username">Username</string>
     <string name="sign_password">Password</string>

@@ -40,7 +40,8 @@ public class MainFragment extends BaseFragment {
         String[] mTopics = new String[] {
                 getString(R.string.topic_sign_in_layout),
                 getString(R.string.topic_sign_up_layout),
-                getString(R.string.topic_round_image)
+                getString(R.string.topic_round_image),
+                getString(R.string.topic_scale_layout)
         };
 
         ListView topicsList = (ListView) view.findViewById(R.id.topics);
@@ -63,6 +64,10 @@ public class MainFragment extends BaseFragment {
                     }
                     case 2:{
                         target = new RoundImageFragment();
+                        break;
+                    }
+                    case 3:{
+                        target = new ScaleLayoutFragment();
                         break;
                     }
                 }
