@@ -3,6 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Attention Please! -->
+    <!-- Do not use wrap_content to let the system decide the size of your view -->
+    <!-- Use px instead of dp or sp to describe your view's & font's size so that the DisplayUtil can scale your layout automatically -->
+
     <FrameLayout
         android:id="@+id/mainLayout"
         android:layout_width="1024px"

@@ -1,8 +1,9 @@
 package com.alex.fragment;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.alex.twork.MainActivity;
+import com.alex.twork.QRScanner;
 import com.alex.twork.R;
 
 /**
@@ -19,7 +22,7 @@ import com.alex.twork.R;
 public class MainFragment extends BaseFragment {
 
     public interface OnTopicSelectedListener {
-        void onTopicSelected(Fragment fragmnet);
+        void onTopicSelected(Object topic);
     }
 
     @Override
@@ -41,7 +44,8 @@ public class MainFragment extends BaseFragment {
                 getString(R.string.topic_sign_in_layout),
                 getString(R.string.topic_sign_up_layout),
                 getString(R.string.topic_round_image),
-                getString(R.string.topic_scale_layout)
+                getString(R.string.topic_scale_layout),
+                getString(R.string.topic_scan_qr_code)
         };
 
         ListView topicsList = (ListView) view.findViewById(R.id.topics);
@@ -52,7 +56,7 @@ public class MainFragment extends BaseFragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Fragment target = null;
+                Object target = null;
                 switch (position) {
                     case 0:{
                         target = new SignInFragment();
@@ -68,6 +72,12 @@ public class MainFragment extends BaseFragment {
                     }
                     case 3:{
                         target = new ScaleLayoutFragment();
+                        break;
+                    }
+                    case 4:{
+                        Intent intent = new Intent(getActivity(), QRScanner.class);
+                        intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
+                        target = intent;
                         break;
                     }
                 }
