@@ -6,6 +6,7 @@
     <string name="topic_round_image">Round Image</string>
     <string name="topic_scale_layout">Scale Layout</string>
     <string name="topic_scan_qr_code">Scan QR Code</string>
+    <string name="topic_generate_qr_code">Generate QR Code</string>
 
     <string name="sign_username">Username</string>
     <string name="sign_password">Password</string>
@@ -16,4 +17,8 @@
 
     <string name="toast_remember_pwd">Write username &amp; password into SharedPreference</string>
     <string name="toast_not_input_data">Username or password not input</string>
+
+    <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="button_ok">OK</string>
+
 </resources>

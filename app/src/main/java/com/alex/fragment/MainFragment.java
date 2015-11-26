@@ -1,6 +1,5 @@
 package com.alex.fragment;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.alex.twork.MainActivity;
-import com.alex.twork.QRScanner;
 import com.alex.twork.R;
+import com.google.zxing.CaptureActivity;
+import com.google.zxing.CreateActivity;
 
 /**
  * Created by alex on 15-11-17.
@@ -45,7 +45,8 @@ public class MainFragment extends BaseFragment {
                 getString(R.string.topic_sign_up_layout),
                 getString(R.string.topic_round_image),
                 getString(R.string.topic_scale_layout),
-                getString(R.string.topic_scan_qr_code)
+                getString(R.string.topic_scan_qr_code),
+                getString(R.string.topic_generate_qr_code),
         };
 
         ListView topicsList = (ListView) view.findViewById(R.id.topics);
@@ -75,7 +76,13 @@ public class MainFragment extends BaseFragment {
                         break;
                     }
                     case 4:{
-                        Intent intent = new Intent(getActivity(), QRScanner.class);
+                        Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                        intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
+                        target = intent;
+                        break;
+                    }
+                    case 5:{
+                        Intent intent = new Intent(getActivity(), CreateActivity.class);
                         intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
                         target = intent;
                         break;

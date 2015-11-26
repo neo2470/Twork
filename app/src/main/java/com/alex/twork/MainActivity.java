@@ -10,6 +10,7 @@ import com.alex.util.DisplayUtil;
 
 /**
  * Created by alex on 15-11-16.
+ * The main activity
  */
 public class MainActivity extends BaseActivity implements MainFragment.OnTopicSelectedListener {
 
