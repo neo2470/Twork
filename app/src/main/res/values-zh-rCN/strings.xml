@@ -8,6 +8,7 @@
     <string name="topic_scale_layout">缩放布局</string>
     <string name="topic_scan_qr_code">扫描二维码</string>
     <string name="topic_generate_qr_code">生成二维码</string>
+    <string name="topic_cache_bitmap">图像缓存</string>
 
     <string name="sign_username">用户名称</string>
     <string name="sign_password">用户密码</string>
@@ -16,6 +17,13 @@
     <string name="sign_in">登录</string>
     <string name="sign_up">注册</string>
 
-    <string name="toast_remember_pwd">将账户和密码SharedPreference</string>
+    <string name="toast_remember_pwd">将账户和密码写入SharedPreference</string>
     <string name="toast_not_input_data">用户名称或用户密码未填写</string>
+
+    <string name="news_time_second" >秒前</string>
+    <string name="news_time_minute" >分钟前</string>
+    <string name="news_time_hour" >小时前</string>
+
+    <string name="footer_load_move">释放手指加载数据</string>
+    <string name="footer_no_move">没有数据了</string>
 </resources>

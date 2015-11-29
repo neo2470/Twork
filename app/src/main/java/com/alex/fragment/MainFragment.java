@@ -47,6 +47,7 @@ public class MainFragment extends BaseFragment {
                 getString(R.string.topic_scale_layout),
                 getString(R.string.topic_scan_qr_code),
                 getString(R.string.topic_generate_qr_code),
+                getString(R.string.topic_cache_bitmap),
         };
 
         ListView topicsList = (ListView) view.findViewById(R.id.topics);
@@ -86,6 +87,9 @@ public class MainFragment extends BaseFragment {
                         intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
                         target = intent;
                         break;
+                    }
+                    case 6:{
+                        target = new NewsFragment();
                     }
                 }
 

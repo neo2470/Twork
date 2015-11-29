@@ -7,6 +7,7 @@
     <string name="topic_scale_layout">Scale Layout</string>
     <string name="topic_scan_qr_code">Scan QR Code</string>
     <string name="topic_generate_qr_code">Generate QR Code</string>
+    <string name="topic_cache_bitmap">Cache Bitmap</string>
 
     <string name="sign_username">Username</string>
     <string name="sign_password">Password</string>
@@ -20,5 +21,12 @@
 
     <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
     <string name="button_ok">OK</string>
+
+    <string name="news_time_second" >seconds ago</string>
+    <string name="news_time_minute" >minutes ago</string>
+    <string name="news_time_hour" >hours ago</string>
+
+    <string name="footer_load_move">Release finger to load more data</string>
+    <string name="footer_no_move">No more data</string>
 
 </resources>

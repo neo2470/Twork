@@ -7,4 +7,6 @@
     <string name="scale_btn_clicked">Click</string>
     <string name="scale_btn_checked_true">Button is checked</string>
     <string name="scale_btn_checked_false">Button is not checked</string>
+
+    <string name="news_time_source" formatted="false">%1$s | %2$s</string>
 </resources>

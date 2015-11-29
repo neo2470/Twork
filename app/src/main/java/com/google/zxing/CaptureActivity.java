@@ -29,8 +29,8 @@ import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.alex.twork.R;
 import com.google.zxing.camera.CameraManager;
@@ -96,7 +96,7 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback 
         surfaceView = (SurfaceView) findViewById(R.id.preview_view);
 
         result = (TextView) findViewById(R.id.result);
-        Switch lightSwitch = (Switch) findViewById(R.id.lightSwitch);
+        ToggleButton lightSwitch = (ToggleButton) findViewById(R.id.lightSwitch);
         lightSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
