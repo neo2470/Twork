@@ -1,0 +1,15 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/frbg_cp01_volume_bar_bg" />
+
+    <item android:id="@android:id/progress">
+
+        <clip>
+
+            <bitmap android:src="@drawable/frbg_cp01_volume_bar" />
+
+        </clip>
+    </item>
+</layer-list>

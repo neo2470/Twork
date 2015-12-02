@@ -9,12 +9,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.alex.graphics.CircleDrawable;
 import com.alex.twork.R;
 import com.alex.util.DisplayUtil;
+import com.alex.widget.ScalableSeekBar;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by alex on 15-11-18.
@@ -37,6 +41,15 @@ public class ScaleLayoutFragment extends BaseFragment implements View.OnClickLis
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test);
         CircleDrawable drawable = new CircleDrawable(bitmap);
         scaleImageView.setImageDrawable(drawable);
+
+        final TextView scalableSeekBarProgress = (TextView) view.findViewById(R.id.scalableSeekBarProgress);
+        ScalableSeekBar scalableSeekBar = (ScalableSeekBar) view.findViewById(R.id.scalableSeekBar);
+        scalableSeekBar.setOnScalableSeekBarChangeListener(new ScalableSeekBar.OnScalableSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(ScalableSeekBar scalableSeekBar, int progress) {
+                scalableSeekBarProgress.setText(progress+"");
+            }
+        });
 
         DisplayUtil.scaleView(view, R.id.mainLayout);
 
