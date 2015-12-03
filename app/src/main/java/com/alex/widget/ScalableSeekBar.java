@@ -9,7 +9,10 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -61,11 +64,17 @@ public final class ScalableSeekBar extends View {
 
         mBackground.location.x = mProgress.location.x = mThumb.location.x = mProgressRectDst.left = (w - mBackground.bitmap.getWidth()) >> 1;
         mBackground.location.y = mProgress.location.y = mThumb.location.y = mProgressRectDst.top = (h - mBackground.bitmap.getHeight()) >> 1;
-        mProgressRectSrc.bottom = mProgressRectDst.bottom = mProgress.getBottom();
+
+        mProgressRectSrc.bottom = mProgress.bitmap.getHeight();
+        mProgressRectDst.bottom = mProgress.getBottom();
+
 
         mThumb.location.x -= HALF_OF_THUMB_WIDTH;
         mThumb.location.y -= (mThumb.bitmap.getHeight() - mBackground.bitmap.getHeight()) >> 1;
-        refreshProgress();
+
+        if(0 < progress) {
+            refreshProgressAndThumb();
+        }
 
         super.onSizeChanged(w, h, ow, oh);
     }
@@ -94,7 +103,7 @@ public final class ScalableSeekBar extends View {
                 break;
             }
         }
-        invalidate(mThumb.location.x, mThumb.location.y, mThumb.getRight(), mThumb.getBottom());
+        invalidate();
         return true;
     }
 
@@ -107,6 +116,35 @@ public final class ScalableSeekBar extends View {
         canvas.drawBitmap(mThumb.bitmap, mThumb.location.x, mThumb.location.y, mPaint);
     }
 
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+
+        // begin boilerplate code so parent classes can restore state
+        if(!(state instanceof SavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+
+        SavedState savedState = (SavedState) state;
+        super.onRestoreInstanceState(savedState.getSuperState());
+        // end
+
+        progress = savedState.progressToSave;
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+
+        // begin boilerplate code so parent classes can restore state
+        Parcelable superState = super.onSaveInstanceState();
+        SavedState savedState = new SavedState(superState);
+        // end
+
+        savedState.progressToSave = progress;
+
+        return savedState;
+    }
+
     public void setOnScalableSeekBarChangeListener(OnScalableSeekBarChangeListener onScalableSeekBarChangeListener) {
         mListener = onScalableSeekBarChangeListener;
     }
@@ -117,7 +155,7 @@ public final class ScalableSeekBar extends View {
 
     public void setProgress(int progress) {
         this.progress = progress;
-        refreshProgress();
+        refreshProgressAndThumb();
     }
 
     public int getMax() {
@@ -144,14 +182,17 @@ public final class ScalableSeekBar extends View {
 
             mThumb.location.x = locationX;
 
-            mProgressRectSrc.right = locationX + HALF_OF_THUMB_WIDTH;
+            mProgressRectSrc.right = locationX + HALF_OF_THUMB_WIDTH - mBackground.location.x;
             mProgressRectDst.right = locationX + HALF_OF_THUMB_WIDTH;
 
-            progress = (int) ((locationX + HALF_OF_THUMB_WIDTH - mBackground.location.x) / Float.valueOf(mBackground.bitmap.getWidth()) * max);
+            progress = (int) ((locationX + HALF_OF_THUMB_WIDTH - mBackground.location.x) / (mBackground.bitmap.getWidth() * 1.0f) * max);
 
             if (null != mListener) {
                 mListener.onProgressChanged(this, progress);
             }
+
+            Log.d("Debug-Thumb-Src", mProgressRectSrc.left + ", " + mProgressRectSrc.top + ", " + mProgressRectSrc.right + ", " + mProgressRectSrc.bottom + ", " + mProgressRectSrc.width() + ", " + mProgressRectSrc.height());
+            Log.d("Debug-Thumb-Dst", mProgressRectDst.left + ", " + mProgressRectDst.top + ", " + mProgressRectDst.right + ", " + mProgressRectDst.bottom + ", " + mProgressRectDst.width() + ", " + mProgressRectDst.height());
         }
     }
 
@@ -237,10 +278,10 @@ public final class ScalableSeekBar extends View {
     /**
      * 更新进度
      */
-    private void refreshProgress() {
-        mThumb.location.x = mBackground.location.x + (int) (progress / Float.valueOf(max) * mBackground.bitmap.getWidth() - HALF_OF_THUMB_WIDTH);
+    private void refreshProgressAndThumb() {
+        mThumb.location.x = mBackground.location.x + (int) (progress / (max * 1.0f) * mBackground.bitmap.getWidth() - HALF_OF_THUMB_WIDTH);
 
-        mProgressRectSrc.right = mThumb.location.x + HALF_OF_THUMB_WIDTH;
+        mProgressRectSrc.right = mThumb.location.x + HALF_OF_THUMB_WIDTH - mBackground.location.x;
         mProgressRectDst.right = mThumb.location.x + HALF_OF_THUMB_WIDTH;
     }
 
@@ -254,8 +295,8 @@ public final class ScalableSeekBar extends View {
 
     private int max;// 进度最大值
     private int progress;// 进度
-    private final int HALF_OF_THUMB_WIDTH;// 游标宽度的一半
 
+    private final int HALF_OF_THUMB_WIDTH;// 游标宽度的一半
     private boolean moveThumb;// 是否可以移动游标
 
     private Tile mThumb;// 游标
@@ -265,6 +306,38 @@ public final class ScalableSeekBar extends View {
     private Rect mProgressRectDst;
 
     private OnScalableSeekBarChangeListener mListener;
+}
+
+class SavedState extends View.BaseSavedState {
+
+    public SavedState(Parcelable superState) {
+        super(superState);
+    }
+
+    private SavedState(Parcel in) {
+        super(in);
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        super.writeToParcel(out, flags);
+        out.writeInt(progressToSave);
+    }
+
+    public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
+
+        @Override
+        public SavedState createFromParcel(Parcel source) {
+            return new SavedState(source);
+        }
+
+        @Override
+        public SavedState[] newArray(int size) {
+            return new SavedState[size];
+        }
+    };
+
+    protected int progressToSave;
 }
 
 class Tile {
