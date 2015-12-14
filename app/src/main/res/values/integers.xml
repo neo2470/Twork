@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="left_weight">1</integer>
+    <integer name="right_weight">4</integer>
+
+</resources>

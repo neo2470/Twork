@@ -48,6 +48,8 @@ public class MainFragment extends BaseFragment {
                 getString(R.string.topic_scan_qr_code),
                 getString(R.string.topic_generate_qr_code),
                 getString(R.string.topic_cache_bitmap),
+                getString(R.string.topic_related_list_view),
+                getString(R.string.topic_scrollable_sheet_layout),
         };
 
         ListView topicsList = (ListView) view.findViewById(R.id.topics);
@@ -90,6 +92,15 @@ public class MainFragment extends BaseFragment {
                     }
                     case 6:{
                         target = new NewsFragment();
+                        break;
+                    }
+                    case 7:{
+                        target = new RelatedListViewFragment();
+                        break;
+                    }
+                    case 8:{
+                        target = new ScrollableSheetFragment();
+                        break;
                     }
                 }
 

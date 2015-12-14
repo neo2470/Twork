@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sheet_title_bar_height"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/sheet_left_row_width"
+            android:layout_height="match_parent"
+            android:background="@color/sheet_title_bg" />
+
+        <com.alex.widget.RelatedHorizontalScrollView
+            android:id="@+id/titleScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/sheet_space_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/rightTitleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/sheet_title_bg"
+                android:divider="@drawable/divider_vertical"
+                android:orientation="horizontal"
+                android:showDividers="middle" />
+
+        </com.alex.widget.RelatedHorizontalScrollView>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sheet_space_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.alex.widget.MeasuredListView
+                android:id="@+id/leftListView"
+                android:layout_width="@dimen/sheet_left_row_width"
+                android:layout_height="match_parent"
+                android:divider="@drawable/divider_horizontal"
+                android:scrollbars="none" />
+
+            <com.alex.widget.RelatedHorizontalScrollView
+                android:id="@+id/contentScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/sheet_space_vertical" >
+
+                <com.alex.widget.MeasuredListView
+                    android:id="@+id/rightListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider_horizontal"
+                    android:scrollbars="none" />
+            </com.alex.widget.RelatedHorizontalScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

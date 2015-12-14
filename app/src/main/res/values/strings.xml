@@ -8,6 +8,8 @@
     <string name="topic_scan_qr_code">Scan QR Code</string>
     <string name="topic_generate_qr_code">Generate QR Code</string>
     <string name="topic_cache_bitmap">Cache Bitmap</string>
+    <string name="topic_related_list_view">Related ListView</string>
+    <string name="topic_scrollable_sheet_layout">Scrollable Sheet Layout</string>
 
     <string name="sign_username">Username</string>
     <string name="sign_password">Password</string>
@@ -29,4 +31,6 @@
     <string name="footer_load_move">Release finger to load more data</string>
     <string name="footer_no_move">No more data</string>
 
+    <string name="sheet_row_text">Row %1$s</string>
+    <string name="sheet_column_text">Column %1$s</string>
 </resources>

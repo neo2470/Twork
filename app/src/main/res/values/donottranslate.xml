@@ -9,4 +9,6 @@
     <string name="scale_btn_checked_false">Button is not checked</string>
 
     <string name="news_time_source" formatted="false">%1$s | %2$s</string>
+
+    <string name="sheet_text_default">--</string>
 </resources>

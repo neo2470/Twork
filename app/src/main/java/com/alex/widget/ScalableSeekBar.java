@@ -190,9 +190,6 @@ public final class ScalableSeekBar extends View {
             if (null != mListener) {
                 mListener.onProgressChanged(this, progress);
             }
-
-            Log.d("Debug-Thumb-Src", mProgressRectSrc.left + ", " + mProgressRectSrc.top + ", " + mProgressRectSrc.right + ", " + mProgressRectSrc.bottom + ", " + mProgressRectSrc.width() + ", " + mProgressRectSrc.height());
-            Log.d("Debug-Thumb-Dst", mProgressRectDst.left + ", " + mProgressRectDst.top + ", " + mProgressRectDst.right + ", " + mProgressRectDst.bottom + ", " + mProgressRectDst.width() + ", " + mProgressRectDst.height());
         }
     }
 
@@ -283,6 +280,8 @@ public final class ScalableSeekBar extends View {
 
         mProgressRectSrc.right = mThumb.location.x + HALF_OF_THUMB_WIDTH - mBackground.location.x;
         mProgressRectDst.right = mThumb.location.x + HALF_OF_THUMB_WIDTH;
+
+        invalidate();
     }
 
     private Paint mPaint;

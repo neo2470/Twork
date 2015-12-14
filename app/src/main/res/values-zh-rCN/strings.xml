@@ -9,6 +9,8 @@
     <string name="topic_scan_qr_code">扫描二维码</string>
     <string name="topic_generate_qr_code">生成二维码</string>
     <string name="topic_cache_bitmap">图像缓存</string>
+    <string name="topic_related_list_view">联动列表</string>
+    <string name="topic_scrollable_sheet_layout">可滑动表格布局</string>
 
     <string name="sign_username">用户名称</string>
     <string name="sign_password">用户密码</string>
@@ -26,4 +28,7 @@
 
     <string name="footer_load_move">释放手指加载数据</string>
     <string name="footer_no_move">没有数据了</string>
+
+    <string name="sheet_row_text">行 %1$s</string>
+    <string name="sheet_column_text">列 %1$s</string>
 </resources>
