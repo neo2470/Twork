@@ -22,6 +22,10 @@
     <string name="toast_remember_pwd">将账户和密码写入SharedPreference</string>
     <string name="toast_not_input_data">用户名称或用户密码未填写</string>
 
+    <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="button_ok">OK</string>
+    <string name="qr_create_failure">创建二维码失败</string>
+
     <string name="news_time_second" >秒前</string>
     <string name="news_time_minute" >分钟前</string>
     <string name="news_time_hour" >小时前</string>
