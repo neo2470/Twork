@@ -26,6 +26,14 @@
     <!-- Android standard ICS color -->
     <color name="viewfinder_mask">#60000000</color>
 
+    <!-- News color-->
+    <color name="news_bg_color_dark">#313131</color>
+    <color name="news_card_color_dark">#3a3a46</color>
+    <color name="news_text_color_dark">#c3c3c7</color>
+
+    <color name="news_bg_color_light">#ECECEC</color>
+    <color name="news_card_color_light">#F5F5F5</color>
+
     <color name="sheet_title_bg">#4BACC6</color>
     <color name="sheet_row_bg_0">#CFE2EA</color>
     <color name="sheet_row_bg_1">#E8F1F5</color>

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -350,13 +351,13 @@ class QueryLatestNews extends AsyncTask<Integer, Void, Boolean> {
         }
 
         HashMap<String, String> header = new HashMap<>();
-        header.put(BAIDU_APISTORE_API_KEY, BAIDU_APISTORE_API_VALUE);
+        header.put(SHOW_API_KEY, SHOW_API_API_VALUE);
 
         boolean result = false;// 查询数据的结果
 
         do {
 
-            final String newsUrl = getFinanceNewsUrl(pageCp);
+            final String newsUrl = getNewsUrl(SHOW_API_CHANNEL_ID, pageCp);
             final String content = getWebContent(newsUrl, header, SHOW_API_CHARSET);
             final Status status = fromJSON(content);
 
@@ -400,6 +401,7 @@ class QueryLatestNews extends AsyncTask<Integer, Void, Boolean> {
             JSONArray contentList = pageBean.optJSONArray("contentlist");
 
             NEWS_PAGES = pageBean.optInt("allPages");
+            Log.d("Debug-pageNum", NEWS_PAGES+"");
 
             final int contentSize = contentList.length();
             if (0 < contentSize) {
@@ -441,7 +443,7 @@ class QueryLatestNews extends AsyncTask<Integer, Void, Boolean> {
      * @param webUrl 网页对应的URL
      * @return 网页内容字符串
      */
-    public static String getWebContent(String webUrl, HashMap<String, String> header, String charset) {
+    private String getWebContent(String webUrl, HashMap<String, String> header, String charset) {
         HttpURLConnection urlConnection = null;
         StringBuilder builder = new StringBuilder();
         try {
@@ -474,11 +476,9 @@ class QueryLatestNews extends AsyncTask<Integer, Void, Boolean> {
         return builder.toString();
     }
 
-    public static String getFinanceNewsUrl(int page) {
-        final String channelID = "5572a109b3cdc86cf39001e0";
-
+    private String getNewsUrl(String channelID, int page) {
         StringBuilder builder = new StringBuilder();
-        builder.append(SHOW_API_FINANCE_NEWS_URL);
+        builder.append(SHOW_API_NEWS_URL);
 
         // 频道ID
         builder.append("channelId");
@@ -506,9 +506,10 @@ class QueryLatestNews extends AsyncTask<Integer, Void, Boolean> {
     private static int NEWS_PAGES;// 新闻的总页数（每页约20条数据）
     private static ArrayList<News> cache;// 存储下拉刷新得到的数据
 
-    private static final String BAIDU_APISTORE_API_KEY = "apikey";
-    private static final String BAIDU_APISTORE_API_VALUE = "7099530a107f136565aa4e1dafc3f74f";
-    private static final String SHOW_API_CHARSET = "utf-8";
-    private static final String SHOW_API_FINANCE_NEWS_URL = "http://apis.baidu.com/showapi_open_bus/channel_news/search_news?";
+    private final String SHOW_API_CHARSET = "utf-8";
+    private final String SHOW_API_KEY = "apikey";
+    private final String SHOW_API_API_VALUE = "7099530a107f136565aa4e1dafc3f74f";
+    private final String SHOW_API_CHANNEL_ID = "5572a108b3cdc86cf39001cd";
+    private final String SHOW_API_NEWS_URL = "http://apis.baidu.com/showapi_open_bus/channel_news/search_news?";
 }
 
