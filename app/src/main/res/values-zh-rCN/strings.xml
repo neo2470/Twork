@@ -11,6 +11,8 @@
     <string name="topic_cache_bitmap">图像缓存</string>
     <string name="topic_related_list_view">联动列表</string>
     <string name="topic_scrollable_sheet_layout">可滑动表格布局</string>
+    <string name="topic_camera_1">拍照1</string>
+    <string name="topic_camera_2">拍照2</string>
 
     <string name="sign_username">用户名称</string>
     <string name="sign_password">用户密码</string>

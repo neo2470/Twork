@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.alex.twork.CameraActivity;
 import com.alex.twork.MainActivity;
 import com.alex.twork.R;
 import com.google.zxing.CaptureActivity;
@@ -40,7 +41,7 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_fragment, container, false);
 
-        String[] mTopics = new String[] {
+        String[] mTopics = new String[]{
                 getString(R.string.topic_sign_in_layout),
                 getString(R.string.topic_sign_up_layout),
                 getString(R.string.topic_round_image),
@@ -50,6 +51,9 @@ public class MainFragment extends BaseFragment {
                 getString(R.string.topic_cache_bitmap),
                 getString(R.string.topic_related_list_view),
                 getString(R.string.topic_scrollable_sheet_layout),
+                getString(R.string.topic_camera_1),
+                getString(R.string.topic_camera_2)
+
         };
 
         ListView topicsList = (ListView) view.findViewById(R.id.topics);
@@ -62,49 +66,58 @@ public class MainFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object target = null;
                 switch (position) {
-                    case 0:{
+                    case 0: {
                         target = new SignInFragment();
                         break;
                     }
-                    case 1:{
+                    case 1: {
                         target = null;
                         break;
                     }
-                    case 2:{
+                    case 2: {
                         target = new RoundImageFragment();
                         break;
                     }
-                    case 3:{
+                    case 3: {
                         target = new ScaleLayoutFragment();
                         break;
                     }
-                    case 4:{
+                    case 4: {
                         Intent intent = new Intent(getActivity(), CaptureActivity.class);
                         intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
                         target = intent;
                         break;
                     }
-                    case 5:{
+                    case 5: {
                         Intent intent = new Intent(getActivity(), CreateActivity.class);
                         intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
                         target = intent;
                         break;
                     }
-                    case 6:{
+                    case 6: {
                         target = new NewsFragment();
                         break;
                     }
-                    case 7:{
+                    case 7: {
                         target = new RelatedListViewFragment();
                         break;
                     }
-                    case 8:{
+                    case 8: {
                         target = new ScrollableSheetFragment();
                         break;
                     }
+                    case 9: {
+                        target = new CameraFragment();
+                        break;
+                    }
+                    case 10: {
+                        Intent intent = new Intent(getActivity(), CameraActivity.class);
+                        intent.putExtra("type", MainActivity.TopicType.Activity.ordinal());
+                        target = intent;
+                    }
                 }
 
-                if(null != target) {
+                if (null != target) {
                     mTopicListener.onTopicSelected(target);
                 }
             }

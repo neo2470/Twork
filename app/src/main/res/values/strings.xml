@@ -10,6 +10,8 @@
     <string name="topic_cache_bitmap">Cache Bitmap</string>
     <string name="topic_related_list_view">Related ListView</string>
     <string name="topic_scrollable_sheet_layout">Scrollable Sheet Layout</string>
+    <string name="topic_camera_1">Camera 1</string>
+    <string name="topic_camera_2">Camera 2</string>
 
     <string name="sign_username">Username</string>
     <string name="sign_password">Password</string>
